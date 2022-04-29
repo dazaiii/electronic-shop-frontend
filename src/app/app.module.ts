@@ -13,9 +13,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginPageComponent, RegistrationPageComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginPageComponent,
+    RegistrationPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +33,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
     MatMenuModule,
     MatSidenavModule,
     MatInputModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

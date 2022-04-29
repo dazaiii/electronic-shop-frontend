@@ -1,20 +1,32 @@
 <div class="register-box">
   <h2>Sign up</h2>
-  <mat-form-field appearance="fill" class="input-field">
-    <mat-label>Username</mat-label>
-    <input matInput type="text" />
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="input-field">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" />
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="input-field">
-    <mat-label>Password</mat-label>
-    <input matInput type="password" />
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="input-field">
-    <mat-label>Repeat password</mat-label>
-    <input matInput type="password" />
-  </mat-form-field>
-  <button mat-button class="register-button">Sign up</button>
+  <form [formGroup]="registrationForm">
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" />
+      <mat-error *ngIf="username?.hasError('required')"
+        >Username is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+      <mat-error *ngIf="email?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error
+        *ngIf="!email?.hasError('required') && email?.hasError('email')"
+      >
+        Email address is invalid
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="password?.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <button mat-button class="register-button">Sign up</button>
+  </form>
 </div>
