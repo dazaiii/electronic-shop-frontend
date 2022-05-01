@@ -1,20 +1,24 @@
-<div class="login-box">
-  <h2>Log in</h2>
-  <form [formGroup]="loginForm">
-    <mat-form-field appearance="fill" class="input-field">
-      <mat-label>Username</mat-label>
-      <input matInput type="text" formControlName="username" />
-      <mat-error *ngIf="username?.hasError('required')"
-        >Username is required
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="input-field">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password" />
-      <mat-error *ngIf="password?.hasError('required')">
-        Password is required
-      </mat-error>
-    </mat-form-field>
-    <button mat-button class="login-button" (click)="onSubmit()">Log in</button>
-  </form>
+<div class="wrapper">
+  <div class="login-box">
+    <h2>Log in</h2>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" />
+        <mat-error *ngIf="username?.hasError('required')"
+          >Username is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="password?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <button mat-button class="login-button" (click)="onSubmit()">
+        Log in
+      </button>
+    </form>
+  </div>
 </div>
