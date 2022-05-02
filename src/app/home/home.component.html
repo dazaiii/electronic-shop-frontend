@@ -1,0 +1,28 @@
+<h1 class="bestsellers">Bestsellers</h1>
+<div class="wrapper">
+  <div *ngFor="let product of products">
+    <div class="element">
+      <div class="product" [routerLink]="['/products', product.id]">
+        <img [src]="product.imageUrl" />
+        <div class="product__name">{{ product.name }}</div>
+        <div>{{ product.price }} zł</div>
+      </div>
+      <div class="product__buttons">
+        <button mat-icon-button>
+          <mat-icon class="product__shoppping-cart">add_shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onFavoriteClicked(product)">
+          <mat-icon
+            *ngIf="isFavorite === false; else favorite"
+            class="product__favorite"
+            >favorite_border</mat-icon
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #favorite>
+  <mat-icon class="product__favorite">favorite</mat-icon>
+</ng-template>
