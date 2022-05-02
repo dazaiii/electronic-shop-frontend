@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginPageComponent,
     RegistrationPageComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
