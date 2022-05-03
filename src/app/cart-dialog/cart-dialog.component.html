@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Product successfully added to the cart</h1>
+<div mat-dialog-content>You can go to the cart or continue shopping.</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cotninue shopping</button>
+  <button mat-button mat-dialog-close [routerLink]="'/cart'">
+    Go to the cart
+  </button>
+</div>

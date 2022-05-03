@@ -16,6 +16,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ProductComponent } from './product/product.component';
     LoginPageComponent,
     RegistrationPageComponent,
     ProductComponent,
+    CartDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { ProductComponent } from './product/product.component';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { UserHttpService } from './user.http.service';
 
-describe('UserService', () => {
+describe('UserHttpService', () => {
   let service: UserHttpService;
 
   beforeEach(() => {
