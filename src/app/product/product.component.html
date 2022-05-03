@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="product">
   <h1 class="product__name">{{ product.name }}</h1>
   <div class="product__image">
     <img [src]="product.imageUrl" />
@@ -6,8 +6,13 @@
   <div class="product__details">
     <h1>{{ product.price | currency: "PLN":"symbol-narrow" }}</h1>
     <h3>{{ product.description }}</h3>
-    <button mat-icon-button>
-      <mat-icon class="product__shoppping-cart">add_shopping_cart</mat-icon>
+    <button
+      mat-raised-button
+      class="product__shoppping-cart"
+      (click)="openDialog()"
+    >
+      <mat-icon>add_shopping_cart</mat-icon>
+      <span>Add to cart</span>
     </button>
   </div>
   <div class="product__description">opis</div>

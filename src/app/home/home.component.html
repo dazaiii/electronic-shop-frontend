@@ -8,7 +8,7 @@
         <div>{{ product.price }} zł</div>
       </div>
       <div class="product__buttons">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="openDialog(); addToCart(product.id)">
           <mat-icon class="product__shoppping-cart">add_shopping_cart</mat-icon>
         </button>
         <button mat-icon-button (click)="onFavoriteClicked(product)">
