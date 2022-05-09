@@ -7,7 +7,7 @@
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button class="shopping-cart-icon">
+  <button mat-icon-button class="shopping-cart-icon" [routerLink]="'/cart'">
     <mat-icon>shopping_cart</mat-icon>
   </button>
 </mat-toolbar>
@@ -17,6 +17,7 @@
   <button mat-button routerLink="/register">Sign up</button>
   <button mat-menu-item><mat-icon>account_circle</mat-icon>My account</button>
   <button mat-menu-item><mat-icon>settings</mat-icon>Settings</button>
+  <button mat-menu-item><mat-icon>favorite</mat-icon>Wish list</button>
 </mat-menu>
 
 <mat-sidenav-container>

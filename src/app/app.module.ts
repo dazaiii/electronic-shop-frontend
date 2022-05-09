@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { CartComponent } from './cart/cart.component';
+import { RecipeAddComponent } from './recipe-add/recipe-add.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
     RegistrationPageComponent,
     ProductComponent,
     CartDialogComponent,
+    CartComponent,
+    RecipeAddComponent,
   ],
   imports: [
     BrowserModule,
