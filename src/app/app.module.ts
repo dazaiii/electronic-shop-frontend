@@ -19,7 +19,7 @@ import { ProductComponent } from './product/product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
-import { RecipeAddComponent } from './recipe-add/recipe-add.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     ProductComponent,
     CartDialogComponent,
     CartComponent,
-    RecipeAddComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

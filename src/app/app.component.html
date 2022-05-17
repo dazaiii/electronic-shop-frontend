@@ -22,13 +22,18 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <p>Categories</p>
-    <p>Computers, components & accessories</p>
-    <p>Headphones</p>
-    <p>Home cinema</p>
-    <p>Mobile phones</p>
-    <p>Tablets</p>
-    <p>eBook readers</p>
+    <div class="categories">
+      <h2>Categories</h2>
+      <ng-container *ngFor="let category of categories; let i = index">
+        <button
+          [routerLink]="['/category', i + 1]"
+          (click)="sidenav.toggle()"
+          mat-button
+        >
+          {{ category.name }}
+        </button>
+      </ng-container>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="main-content">

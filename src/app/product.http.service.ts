@@ -17,4 +17,10 @@ export class ProductHttpService {
   getProductById(id: number) {
     return this.http.get<Product>(`http://localhost:3000/api/products/${id}`);
   }
+
+  getProductsByCategory(categoryId: string) {
+    return this.http.get<Product[]>(
+      `http://localhost:3000/api/products/category/${categoryId}`
+    );
+  }
 }

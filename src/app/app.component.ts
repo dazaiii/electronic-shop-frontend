@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Category } from 'src/models/categories.model';
+import { CategoryHttpService } from './category.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'electronic-shop-frontend';
+
+  category: Category;
+
+  categories: Category[];
+
+  constructor(private categoryHttpService: CategoryHttpService) {}
+
+  ngOnInit() {
+    this.getCategories();
+  }
+
+  getCategories() {
+    return this.categoryHttpService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
+  }
 }
