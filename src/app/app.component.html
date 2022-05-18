@@ -15,8 +15,9 @@
 <mat-menu #menu="matMenu">
   <button mat-button routerLink="/login">Login in</button>
   <button mat-button routerLink="/register">Sign up</button>
-  <button mat-menu-item><mat-icon>account_circle</mat-icon>My account</button>
-  <button mat-menu-item><mat-icon>settings</mat-icon>Settings</button>
+  <button mat-menu-item routerLink="/account">
+    <mat-icon>account_circle</mat-icon>My account
+  </button>
   <button mat-menu-item><mat-icon>favorite</mat-icon>Wish list</button>
 </mat-menu>
 

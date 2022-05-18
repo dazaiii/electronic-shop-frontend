@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CategoryComponent } from './category/category.component';
     CartDialogComponent,
     CartComponent,
     CategoryComponent,
+    AccountSettingsComponent,
   ],
   imports: [
     BrowserModule,

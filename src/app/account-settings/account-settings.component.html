@@ -1,0 +1,81 @@
+<h1 class="account">My account</h1>
+<div class="settings">
+  <div class="password">
+    <h2>Change password</h2>
+    <form class="password__form" [formGroup]="passwordForm">
+      <mat-form-field class="password-full-width" appearance="fill">
+        <mat-label>Your password</mat-label>
+        <input formControlName="password" type="password" matInput />
+        <mat-error *ngIf="password?.hasError('required')"
+          >Old password is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="password-full-width" appearance="fill">
+        <mat-label>New password</mat-label>
+        <input formControlName="newPassword" type="password" matInput />
+        <mat-error *ngIf="newPassword?.hasError('required')"
+          >Type new password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="password-full-width" appearance="fill">
+        <mat-label>Repeat new password</mat-label>
+        <input formControlName="repeatedPassword" type="password" matInput />
+        <mat-error *ngIf="repeatedPassword?.hasError('required')"
+          >Repeat your new password
+        </mat-error>
+        <mat-error *ngIf="repeatedPassword?.hasError('notSame')">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="checkPasswords()"> Passwords do not match </mat-error>
+
+      <button
+        mat-button
+        (click)="changePassword()"
+        [disabled]="checkPasswords()"
+      >
+        Change password
+      </button>
+    </form>
+  </div>
+  <div class="data">
+    <div class="user-data">
+      <h2>Personal data</h2>
+      <h3>Name: {{ personalData.name }}</h3>
+      <h3>Surname: {{ personalData.surname }}</h3>
+      <h3>Address: {{ personalData.address }}</h3>
+      <h3>City: {{ personalData.city }}</h3>
+      <h3>Zip-code: {{ personalData.zipCode }}</h3>
+      <h3>Phone number: {{ personalData.phoneNumber }}</h3>
+    </div>
+    <div class="modify-data__inputs">
+      <form class="modify-data__form" [formGroup]="personalDataForm">
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>Surname</mat-label>
+          <input formControlName="surname" type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>Address</mat-label>
+          <input formControlName="address" type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>City</mat-label>
+          <input formControlName="city" type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>Zip-code</mat-label>
+          <input formControlName="zipCode" type="text" matInput />
+        </mat-form-field>
+        <mat-form-field class="modify-data__full-width" appearance="fill">
+          <mat-label>Phone number</mat-label>
+          <input formControlName="phoneNumber" type="text" matInput />
+        </mat-form-field>
+      </form>
+      <button mat-button (click)="updateData()">Update data</button>
+    </div>
+  </div>
+</div>
