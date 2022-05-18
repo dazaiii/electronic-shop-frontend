@@ -15,4 +15,14 @@ export class CartHttpService {
       amount,
     });
   }
+
+  getUserCart(userId: number) {
+    
+  }
+
+  removeFromCart(productId: number) {
+    return this.http.delete<Product>(
+      `http://localhost:3000/api/carts/${productId}`
+    );
+  }
 }

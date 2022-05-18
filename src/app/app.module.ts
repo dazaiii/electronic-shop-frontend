@@ -19,11 +19,15 @@ import { ProductComponent } from './product/product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
+<<<<<<< HEAD
 import { AdministrationPageComponent } from './administration-page/administration-page.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ModifyCategoryComponent } from './modify-category/modify-category.component';
+=======
+import { CategoryComponent } from './category/category.component';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -34,10 +38,14 @@ import { ModifyCategoryComponent } from './modify-category/modify-category.compo
     ProductComponent,
     CartDialogComponent,
     CartComponent,
+<<<<<<< HEAD
     AdministrationPageComponent,
     AddCategoryComponent,
     DeleteCategoryComponent,
     ModifyCategoryComponent,
+=======
+    CategoryComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
