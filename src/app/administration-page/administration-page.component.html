@@ -1,0 +1,44 @@
+<div class="admin-panel">
+  <div class="admin-panel__item">
+    <button
+      (click)="visibleItems.addCategory = true"
+      *ngIf="!visibleItems.addCategory"
+    >
+      Add category
+    </button>
+    <app-add-category
+      [(isVisible)]="visibleItems.addCategory"
+    ></app-add-category>
+  </div>
+  <div class="admin-panel__item">
+    <button
+      (click)="visibleItems.modifyCategory = true"
+      *ngIf="!visibleItems.modifyCategory"
+    >
+      Modify category
+    </button>
+    <app-modify-category
+      [(isVisible)]="visibleItems.modifyCategory"
+    ></app-modify-category>
+  </div>
+  <div class="admin-panel__item">
+    <button
+      (click)="visibleItems.deleteCategory = true"
+      *ngIf="!visibleItems.deleteCategory"
+    >
+      Delete category
+    </button>
+    <app-delete-category
+      [(isVisible)]="visibleItems.deleteCategory"
+    ></app-delete-category>
+  </div>
+  <div class="admin-panel__item">
+    <button>Add product</button>
+  </div>
+  <div class="admin-panel__item">
+    <button>Modify product</button>
+  </div>
+  <div class="admin-panel__item">
+    <button>Delete product</button>
+  </div>
+</div>

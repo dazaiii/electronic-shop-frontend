@@ -19,7 +19,11 @@ import { ProductComponent } from './product/product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { CartComponent } from './cart/cart.component';
-import { RecipeAddComponent } from './recipe-add/recipe-add.component';
+import { AdministrationPageComponent } from './administration-page/administration-page.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { DeleteCategoryComponent } from './delete-category/delete-category.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ModifyCategoryComponent } from './modify-category/modify-category.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     ProductComponent,
     CartDialogComponent,
     CartComponent,
-    RecipeAddComponent,
+    AdministrationPageComponent,
+    AddCategoryComponent,
+    DeleteCategoryComponent,
+    ModifyCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
