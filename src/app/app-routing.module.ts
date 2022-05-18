@@ -15,11 +15,8 @@ const routes: Routes = [
   { path: 'register', component: RegistrationPageComponent },
   { path: 'products/:id', component: ProductComponent },
   { path: 'cart', component: CartComponent },
-<<<<<<< HEAD
   { path: 'admin', component: AdministrationPageComponent },
-=======
   { path: 'category/:id', component: CategoryComponent },
->>>>>>> master
 ];
 
 @NgModule({
