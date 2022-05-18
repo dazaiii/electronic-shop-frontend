@@ -6,8 +6,14 @@ import { Category } from 'src/models/category.model';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class CategoryHttpService {
   constructor(private httpClient: HttpClient) {}
+
+  getCategoryById(categoryId: string) {
+    return this.httpClient.get<Category>(
+      `http://localhost:3000/api/categories/${categoryId}`
+    );
+  }
 
   getCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(

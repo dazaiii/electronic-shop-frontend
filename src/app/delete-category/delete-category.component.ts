@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Category } from 'src/models/category.model';
-import { CategoryService } from '../category.http.service';
+import { CategoryHttpService } from '../category.http.service';
 
 @Component({
   selector: 'app-delete-category',
@@ -20,7 +20,7 @@ export class DeleteCategoryComponent implements OnInit {
 
   categories: Observable<Category[]>;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryHttpService) {}
 
   ngOnInit(): void {
     this.getCategories();

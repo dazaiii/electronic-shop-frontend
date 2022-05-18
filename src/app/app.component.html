@@ -4,10 +4,13 @@
   </button>
   <img src="../assets/Logo.png" alt="logo" routerLink="/" />
   <span class="example-spacer"></span>
+  <button mat-icon-button routerLink="/admin">
+    <mat-icon>settings</mat-icon>
+  </button>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>account_circle</mat-icon>
   </button>
-  <button mat-icon-button class="shopping-cart-icon" [routerLink]="'/cart'">
+  <button mat-icon-button class="shopping-cart-icon" routerLink="/cart">
     <mat-icon>shopping_cart</mat-icon>
   </button>
 </mat-toolbar>

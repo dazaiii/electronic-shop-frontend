@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/models/category.model';
-import { CategoryService } from '../category.http.service';
+import { CategoryHttpService } from '../category.http.service';
 
 @Component({
   selector: 'app-modify-category',
@@ -34,7 +34,7 @@ export class ModifyCategoryComponent implements OnInit {
 
   categories: Category[];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryHttpService) {}
 
   ngOnInit(): void {
     this.getCategories();

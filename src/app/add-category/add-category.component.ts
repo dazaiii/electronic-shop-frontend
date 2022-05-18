@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Category } from 'src/models/category.model';
-import { CategoryService } from '../category.http.service';
+import { CategoryHttpService } from '../category.http.service';
 
 @Component({
   selector: 'app-add-category',
@@ -23,7 +23,7 @@ export class AddCategoryComponent implements OnInit {
     Validators.minLength(10),
   ]);
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryHttpService) {}
 
   ngOnInit(): void {}
 

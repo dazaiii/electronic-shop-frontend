@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/models/categories.model';
-import { CategoryHttpService } from './category.service';
+import { CategoryHttpService } from './category.http.service';
 
 @Component({
   selector: 'app-root',
