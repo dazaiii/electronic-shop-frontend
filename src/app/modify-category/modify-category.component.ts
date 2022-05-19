@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/models/category.model';
 import { CategoryHttpService } from '../category.http.service';
@@ -9,11 +9,6 @@ import { CategoryHttpService } from '../category.http.service';
   styleUrls: ['./modify-category.component.scss'],
 })
 export class ModifyCategoryComponent implements OnInit {
-  @Input()
-  isVisible: boolean = false;
-  @Output()
-  isVisibleChange = new EventEmitter<boolean>();
-
   categoryId = new FormControl();
 
   updateCategoryForm = new FormGroup({
@@ -53,15 +48,7 @@ export class ModifyCategoryComponent implements OnInit {
     };
     this.categoryService
       .modifyCategory(this.categoryId.value, category)
-      .subscribe(() => {
-        this.onCancel();
-      });
-  }
-
-  onCancel() {
-    this.categoryId.reset();
-    this.updateCategoryForm.reset();
-    this.isVisibleChange.emit(false);
+      .subscribe(() => {});
   }
 
   onSelect() {

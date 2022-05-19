@@ -29,7 +29,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.userHttpService
       .login(this.loginForm.value.username, this.loginForm.value.password)
       .pipe(
@@ -42,6 +41,6 @@ export class LoginPageComponent implements OnInit {
           return of();
         })
       )
-      .subscribe((x) => console.log(x));
+      .subscribe((x) => {});
   }
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Category } from 'src/models/category.model';
@@ -10,12 +10,6 @@ import { CategoryHttpService } from '../category.http.service';
   styleUrls: ['./delete-category.component.scss'],
 })
 export class DeleteCategoryComponent implements OnInit {
-  @Input()
-  isVisible: boolean = false;
-
-  @Output()
-  isVisibleChange = new EventEmitter<boolean>();
-
   category = new FormControl();
 
   categories: Observable<Category[]>;
@@ -31,12 +25,8 @@ export class DeleteCategoryComponent implements OnInit {
   }
 
   onSave() {
-    this.categoryService.deleteCategory(this.category.value).subscribe(() => {
-      this.isVisibleChange.emit(false);
-    });
-  }
-
-  onCancel() {
-    this.isVisibleChange.emit(false);
+    this.categoryService
+      .deleteCategory(this.category.value)
+      .subscribe(() => {});
   }
 }

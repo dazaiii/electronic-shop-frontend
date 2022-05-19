@@ -27,4 +27,8 @@ export class AdministrationPageComponent implements OnInit {
       deleteProduct: false,
     };
   }
+
+  panelIsVisible(): boolean {
+    return Object.values(this.visibleItems).every((x) => x === false);
+  }
 }

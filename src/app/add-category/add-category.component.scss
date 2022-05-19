@@ -1,0 +1,16 @@
+.header {
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: rgb(173, 216, 230) dotted 0.15rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

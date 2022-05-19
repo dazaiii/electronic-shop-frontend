@@ -14,7 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
@@ -25,6 +25,8 @@ import { DeleteCategoryComponent } from './delete-category/delete-category.compo
 import { MatSelectModule } from '@angular/material/select';
 import { ModifyCategoryComponent } from './modify-category/modify-category.component';
 import { CategoryComponent } from './category/category.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { CategoryComponent } from './category/category.component';
     DeleteCategoryComponent,
     ModifyCategoryComponent,
     CategoryComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { CategoryComponent } from './category/category.component';
     HttpClientModule,
     MatDialogModule,
     MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

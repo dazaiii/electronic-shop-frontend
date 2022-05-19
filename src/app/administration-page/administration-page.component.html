@@ -1,39 +1,15 @@
-<div class="admin-panel">
+<div class="admin-panel" *ngIf="panelIsVisible()">
   <div class="admin-panel__item">
-    <button
-      (click)="visibleItems.addCategory = true"
-      *ngIf="!visibleItems.addCategory"
-    >
-      Add category
-    </button>
-    <app-add-category
-      [(isVisible)]="visibleItems.addCategory"
-    ></app-add-category>
+    <button routerLink="/admin/addCategory">Add category</button>
   </div>
   <div class="admin-panel__item">
-    <button
-      (click)="visibleItems.modifyCategory = true"
-      *ngIf="!visibleItems.modifyCategory"
-    >
-      Modify category
-    </button>
-    <app-modify-category
-      [(isVisible)]="visibleItems.modifyCategory"
-    ></app-modify-category>
+    <button routerLink="/admin/modifyCategory">Modify category</button>
   </div>
   <div class="admin-panel__item">
-    <button
-      (click)="visibleItems.deleteCategory = true"
-      *ngIf="!visibleItems.deleteCategory"
-    >
-      Delete category
-    </button>
-    <app-delete-category
-      [(isVisible)]="visibleItems.deleteCategory"
-    ></app-delete-category>
+    <button routerLink="/admin/deleteCategory">Delete category</button>
   </div>
   <div class="admin-panel__item">
-    <button>Add product</button>
+    <button routerLink="/admin/addProduct">Add product</button>
   </div>
   <div class="admin-panel__item">
     <button>Modify product</button>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Category } from 'src/models/category.model';
 import { CategoryHttpService } from '../category.http.service';
@@ -9,11 +9,6 @@ import { CategoryHttpService } from '../category.http.service';
   styleUrls: ['./add-category.component.scss'],
 })
 export class AddCategoryComponent implements OnInit {
-  @Input()
-  isVisible: boolean;
-  @Output()
-  isVisibleChange = new EventEmitter<boolean>();
-
   categoryForm = new FormControl('', [
     Validators.required,
     Validators.minLength(2),
@@ -27,18 +22,12 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onCancel() {
-    this.isVisibleChange.emit(false);
-  }
-
   onSave() {
     const category: Category = {
       name: this.categoryForm.value,
       description: this.description.value,
     };
-    this.categoryService.addCategory(category).subscribe(() => {
-      this.isVisibleChange.emit(false);
-    });
+    this.categoryService.addCategory(category).subscribe(() => {});
   }
 
   resetForm() {

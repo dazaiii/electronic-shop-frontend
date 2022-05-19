@@ -1,4 +1,5 @@
-<div *ngIf="isVisible">
+<h1 class="header">Add category</h1>
+<div class="inputs">
   <mat-form-field appearance="fill">
     <mat-label>Category Name</mat-label>
     <input matInput [formControl]="categoryForm" type="text" />
@@ -29,7 +30,8 @@
       </mat-error>
     </ng-container>
   </mat-form-field>
-
+</div>
+<div class="buttons">
   <button mat-button (click)="onSave(); resetForm()">Save</button>
-  <button mat-button (click)="onCancel(); resetForm()">Cancel</button>
+  <button mat-button routerLink="/admin">Cancel</button>
 </div>
