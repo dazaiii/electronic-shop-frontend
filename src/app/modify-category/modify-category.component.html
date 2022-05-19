@@ -1,0 +1,43 @@
+<h1 class="header">Modify category</h1>
+<mat-form-field appearance="fill">
+  <mat-label>Categories</mat-label>
+  <mat-select [formControl]="categoryId" (selectionChange)="onSelect()">
+    <mat-option *ngFor="let cat of categories" [value]="cat.id">
+      {{ cat.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<form [formGroup]="updateCategoryForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input matInput formControlName="name" type="text" />
+    <ng-container *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+      <mat-error *ngIf="name?.hasError('required')">
+        Category name is required
+      </mat-error>
+      <mat-error *ngIf="name?.hasError('minlength')">
+        Category name must be at least 2 characters long
+      </mat-error>
+    </ng-container>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Category description</mat-label>
+    <input matInput formControlName="description" type="text" />
+    <ng-container
+      *ngIf="
+        description?.invalid && (description?.dirty || description?.touched)
+      "
+    >
+      <mat-error *ngIf="description?.hasError('required')">
+        Category name is required
+      </mat-error>
+      <mat-error *ngIf="description?.hasError('minlength')">
+        Category name must be at least 10 characters long
+      </mat-error>
+    </ng-container>
+  </mat-form-field>
+</form>
+
+<button mat-button (click)="onSave()">Save</button>
+<button mat-button routerLink="/admin">Cancel</button>

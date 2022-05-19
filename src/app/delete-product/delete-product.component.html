@@ -1,0 +1,11 @@
+<h1 class="header">Delete product</h1>
+<mat-form-field appearance="fill">
+  <mat-label>Products</mat-label>
+  <mat-select [formControl]="product">
+    <mat-option *ngFor="let prod of products | async" [value]="prod.id">
+      {{ prod.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button (click)="onSave()">Save</button>
+<button mat-button routerLink="/admin">Cancel</button>

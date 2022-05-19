@@ -6,7 +6,7 @@ import { Category } from 'src/models/categories.model';
 import { Product } from 'src/models/products.model';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
 import { CartHttpService } from '../cart.http.service';
-import { CategoryHttpService } from '../category.service';
+import { CategoryHttpService } from '../category.http.service';
 import { ProductHttpService } from '../product.http.service';
 
 @Component({

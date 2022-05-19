@@ -1,0 +1,37 @@
+<h1 class="header">Add category</h1>
+<div class="inputs">
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input matInput [formControl]="categoryForm" type="text" />
+    <ng-container
+      *ngIf="
+        categoryForm.invalid && (categoryForm.dirty || categoryForm.touched)
+      "
+    >
+      <mat-error *ngIf="categoryForm.hasError('required')">
+        Category name is required
+      </mat-error>
+      <mat-error *ngIf="categoryForm.hasError('minlength')">
+        Category name must be at least 2 characters long
+      </mat-error>
+    </ng-container>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Category description</mat-label>
+    <input matInput [formControl]="description" type="text" />
+    <ng-container
+      *ngIf="description.invalid && (description.dirty || description.touched)"
+    >
+      <mat-error *ngIf="description.hasError('required')">
+        Category name is required
+      </mat-error>
+      <mat-error *ngIf="description.hasError('minlength')">
+        Category name must be at least 10 characters long
+      </mat-error>
+    </ng-container>
+  </mat-form-field>
+</div>
+<div class="buttons">
+  <button mat-button (click)="onSave(); resetForm()">Save</button>
+  <button mat-button routerLink="/admin">Cancel</button>
+</div>

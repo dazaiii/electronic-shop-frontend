@@ -1,0 +1,36 @@
+.header {
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: rgb(173, 216, 230) dotted 0.15rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.selects {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  &_description {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  &_url {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: space-around;
+}

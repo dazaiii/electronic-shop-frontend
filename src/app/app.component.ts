@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from 'src/models/categories.model';
-import { CategoryHttpService } from './category.service';
+import { CategoryHttpService } from './category.http.service';
+import { UserHttpService } from './user.http.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,10 @@ export class AppComponent {
 
   categories: Category[];
 
-  constructor(private categoryHttpService: CategoryHttpService) {}
+  constructor(
+    private categoryHttpService: CategoryHttpService,
+    private userService: UserHttpService
+  ) {}
 
   ngOnInit() {
     this.getCategories();
@@ -24,5 +28,9 @@ export class AppComponent {
     return this.categoryHttpService.getCategories().subscribe((categories) => {
       this.categories = categories;
     });
+  }
+
+  checkRole(): boolean {
+    return this.userService.userRole === 'admin';
   }
 }
