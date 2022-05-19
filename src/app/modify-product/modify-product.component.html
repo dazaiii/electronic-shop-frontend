@@ -1,0 +1,95 @@
+<h1 class="header">Modify product</h1>
+
+<form [formGroup]="productForm" class="container">
+  <section class="selects">
+    <mat-form-field appearance="fill">
+      <mat-label>Products</mat-label>
+      <mat-select [formControl]="productId" (selectionChange)="selectProduct()">
+        <mat-option *ngFor="let prod of products" [value]="prod.id">
+          {{ prod.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+  <section class="fields">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" type="text" />
+      <ng-container *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <mat-error *ngIf="name?.hasError('required')">
+          Name is required
+        </mat-error>
+        <mat-error *ngIf="name?.hasError('minlength')">
+          Name must be at least 3 characters long
+        </mat-error>
+      </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput formControlName="amount" type="number" />
+      <ng-container
+        *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)"
+      >
+        <mat-error *ngIf="amount?.hasError('required')">
+          Amount is required
+        </mat-error>
+      </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number" />
+      <ng-container *ngIf="price?.invalid && (price?.dirty || price?.touched)">
+        <mat-error *ngIf="price?.hasError('required')">
+          Price is required
+        </mat-error>
+      </ng-container>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="fields_description">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="5"
+      >
+      </textarea>
+      <ng-container
+        *ngIf="
+          description?.invalid && (description?.dirty || description?.touched)
+        "
+      >
+        <mat-error *ngIf="description?.hasError('required')">
+          Description is required
+        </mat-error>
+        <mat-error *ngIf="description?.hasError('minlength')">
+          Description must be at least 3 characters long
+        </mat-error>
+      </ng-container>
+    </mat-form-field>
+    <mat-form-field class="fields_url" appearance="fill">
+      <mat-label>imageUrl</mat-label>
+      <input matInput formControlName="imageUrl" type="text" />
+      <ng-container
+        *ngIf="imageUrl?.invalid && (imageUrl?.dirty || imageUrl?.touched)"
+      >
+        <mat-error *ngIf="imageUrl?.hasError('required')">
+          imageUrl is required
+        </mat-error>
+        <mat-error *ngIf="imageUrl?.hasError('minlength')">
+          imageUrl must be at least 3 characters long
+        </mat-error>
+        <mat-error *ngIf="imageUrl?.hasError('pattern')">
+          imageUrl must be URL
+        </mat-error>
+      </ng-container>
+    </mat-form-field>
+  </section>
+  <section class="checkboxes">
+    <mat-checkbox formControlName="availability">Availability</mat-checkbox>
+    <mat-checkbox formControlName="bestseller">Bestseller</mat-checkbox>
+  </section>
+</form>
+<button mat-button (click)="onSave()">Save</button>
+<button mat-button routerLink="/admin">Cancel</button>

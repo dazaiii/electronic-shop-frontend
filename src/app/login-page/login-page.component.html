@@ -16,7 +16,12 @@
           Password is required
         </mat-error>
       </mat-form-field>
-      <button mat-button class="login-button" (click)="onSubmit()">
+      <button
+        mat-button
+        class="login-button"
+        (click)="onSubmit()"
+        routerLink="/home"
+      >
         Log in
       </button>
     </form>

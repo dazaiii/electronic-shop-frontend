@@ -27,6 +27,8 @@ import { ModifyCategoryComponent } from './modify-category/modify-category.compo
 import { CategoryComponent } from './category/category.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { ModifyProductComponent } from './modify-product/modify-product.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ModifyCategoryComponent,
     CategoryComponent,
     AddProductComponent,
+    DeleteProductComponent,
+    ModifyProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
   </button>
   <img src="../assets/Logo.png" alt="logo" routerLink="/" />
   <span class="example-spacer"></span>
-  <button mat-icon-button routerLink="/admin">
+  <button mat-icon-button routerLink="/admin" *ngIf="checkRole()">
     <mat-icon>settings</mat-icon>
   </button>
   <button mat-icon-button [matMenuTriggerFor]="menu">

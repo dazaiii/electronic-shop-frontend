@@ -41,6 +41,8 @@ export class LoginPageComponent implements OnInit {
           return of();
         })
       )
-      .subscribe((x) => {});
+      .subscribe((x) => {
+        this.userHttpService.userRole = x.userRole;
+      });
   }
 }

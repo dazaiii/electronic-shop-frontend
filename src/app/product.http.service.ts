@@ -36,10 +36,14 @@ export class ProductHttpService {
   }
 
   deleteProductById(id: number) {
-    return this.http.delete(`http://localhost:3000/api/products/${id}`);
+    return this.http.delete(`http://localhost:3000/api/products/${id}`, {
+      withCredentials: true,
+    });
   }
 
   updateProduct(id: number, body: Product) {
-    return this.http.put(`http://localhost:3000/api/products/${id}`, body);
+    return this.http.put(`http://localhost:3000/api/products/${id}`, body, {
+      withCredentials: true,
+    });
   }
 }

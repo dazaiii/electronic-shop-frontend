@@ -25,8 +25,8 @@ export class DeleteCategoryComponent implements OnInit {
   }
 
   onSave() {
-    this.categoryService
-      .deleteCategory(this.category.value)
-      .subscribe(() => {});
+    this.categoryService.deleteCategory(this.category.value).subscribe(() => {
+      this.getCategories();
+    });
   }
 }
