@@ -1,0 +1,73 @@
+.account {
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: rgb(173, 216, 230) dotted 0.15rem;
+}
+
+.settings {
+  display: flex;
+  flex-direction: row;
+}
+
+.password {
+  padding-left: 1.5rem;
+  width: 30%;
+  height: 80vh;
+  border-right: rgb(173, 216, 230) dotted 0.15rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+  }
+
+  &__full-width {
+    width: 100%;
+  }
+}
+
+.data {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem;
+  margin-left: 2rem;
+}
+
+.modify-data {
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  &__form {
+    max-width: 30rem;
+  }
+
+  &__full-width {
+    width: 100%;
+  }
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: lightblue;
+  width: 50%;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+h3 {
+  margin-left: 1rem;
+}

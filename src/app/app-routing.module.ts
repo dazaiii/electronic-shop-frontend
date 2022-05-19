@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdministrationPageComponent } from './administration-page/administration-page.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'admin/modifyProduct', component: ModifyProductComponent },
   { path: 'admin/deleteProduct', component: DeleteProductComponent },
   { path: 'category/:id', component: CategoryComponent },
+  { path: 'account', component: AccountSettingsComponent },
 ];
 
 @NgModule({
