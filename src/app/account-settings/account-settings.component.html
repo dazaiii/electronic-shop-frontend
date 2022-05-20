@@ -39,14 +39,14 @@
     </form>
   </div>
   <div class="data">
-    <div class="user-data">
+    <div class="user-data" *ngIf="personalData; else noPersonalData">
       <h2>Personal data</h2>
       <h3>Name: {{ personalData.name }}</h3>
       <h3>Surname: {{ personalData.surname }}</h3>
       <h3>Address: {{ personalData.address }}</h3>
       <h3>City: {{ personalData.city }}</h3>
       <h3>Zip-code: {{ personalData.zipCode }}</h3>
-      <h3>Phone number: {{ personalData.phoneNumber }}</h3>
+      <h3>Phone number: {{ personalData.phone }}</h3>
     </div>
     <div class="modify-data__inputs">
       <form class="modify-data__form" [formGroup]="personalDataForm">
@@ -72,10 +72,22 @@
         </mat-form-field>
         <mat-form-field class="modify-data__full-width" appearance="fill">
           <mat-label>Phone number</mat-label>
-          <input formControlName="phoneNumber" type="text" matInput />
+          <input formControlName="phone" type="text" matInput />
         </mat-form-field>
       </form>
       <button mat-button (click)="updateData()">Update data</button>
     </div>
   </div>
 </div>
+
+<ng-template #noPersonalData>
+  <div class="user-data">
+    <h2>Personal data</h2>
+    <h3>Name: -</h3>
+    <h3>Surname: -</h3>
+    <h3>Address: -</h3>
+    <h3>City: -</h3>
+    <h3>Zip-code: -</h3>
+    <h3>Phone number: -</h3>
+  </div>
+</ng-template>
