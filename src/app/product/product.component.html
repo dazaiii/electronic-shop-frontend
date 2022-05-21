@@ -4,7 +4,7 @@
     <img [src]="product.imageUrl" />
   </div>
   <div class="product__details">
-    <h1>{{ product.price | currency: "PLN":"symbol-narrow" }}</h1>
+    <h1>Price: {{ product.price }} zł</h1>
     <h3>{{ product.description }}</h3>
     <button
       *ngIf="product.id"

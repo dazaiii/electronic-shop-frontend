@@ -31,12 +31,14 @@
 
   &__shopping-cart {
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 3;
+  }
 
-    &__button {
-      background-color: $lightblue;
-      color: $white;
-    }
+  &__button {
+    background-color: $lightblue;
+    color: $white;
+    grid-column-start: 3;
+    grid-column-end: 4;
   }
 }
 

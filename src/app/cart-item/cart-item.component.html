@@ -10,13 +10,10 @@
         <mat-icon>check_circle_outline</mat-icon>
       </button>
     </mat-form-field>
-    <button
-      mat-raised-button
-      class="item__shopping-cart__button"
-      (click)="removeItem(item.id)"
-    >
-      <mat-icon>remove_shopping_cart</mat-icon>
-      <span>Remove from cart</span>
-    </button>
   </div>
+
+  <button mat-raised-button class="item__button" (click)="removeItem(item.id)">
+    <mat-icon>remove_shopping_cart</mat-icon>
+    <span>Remove from cart</span>
+  </button>
 </div>
