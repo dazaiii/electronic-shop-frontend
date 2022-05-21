@@ -1,13 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonalData } from 'src/models/personalData.model';
+import { PersonalDataService } from '../personal-data.http.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -19,7 +13,10 @@ export class AccountSettingsComponent implements OnInit {
 
   personalDataForm: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(
+    fb: FormBuilder,
+    private personalDataService: PersonalDataService
+  ) {
     this.passwordForm = fb.group({
       password: fb.control('', [Validators.required]),
       newPassword: fb.control('', [Validators.required]),
@@ -32,14 +29,14 @@ export class AccountSettingsComponent implements OnInit {
       address: fb.control(''),
       city: fb.control(''),
       zipCode: fb.control(''),
-      phoneNumber: fb.control(''),
+      phone: fb.control(''),
     });
   }
 
   personalData: PersonalData;
 
   ngOnInit(): void {
-    this.personalData = this.getPersonalData();
+    this.getPersonalData();
   }
 
   get password() {
@@ -74,40 +71,33 @@ export class AccountSettingsComponent implements OnInit {
     return this.personalDataForm?.get('city');
   }
 
-  get phoneNumber() {
-    return this.personalDataForm?.get('phoneNumber');
+  get phone() {
+    return this.personalDataForm?.get('phone');
   }
 
   checkPasswords(): boolean {
     let pass = this.newPassword?.value;
     let confirmPass = this.repeatedPassword?.value;
-    console.log(
-      pass,
-      confirmPass,
-      pass === confirmPass ? null : { notSame: true }
-    );
+    // console.log(
+    //   pass,
+    //   confirmPass,
+    //   pass === confirmPass ? null : { notSame: true }
+    // );
     return pass !== confirmPass;
   }
 
   getPersonalData() {
-    //mock
-    let personalData = {
-      name: 'John',
-      surname: 'Johanson',
-      address: 'Johansonowo 22/33',
-      city: 'Johansonów',
-      zipCode: '33-333',
-      phoneNumber: '324-829-826',
-    };
-    this.personalDataForm.reset(personalData);
-    return personalData;
+    this.personalDataService.getPersonalData().subscribe((personalData) => {
+      this.personalData = personalData;
+      this.personalDataForm.reset(this.personalData);
+    });
   }
 
   updateData() {
     this.personalData = this.personalDataForm.value;
-    // this.personalDataService.updatePersonalData(this.personalDataForm.value).subscribe((personalData) => {
-    //   this.personalData = personalData;
-    // })
+    this.personalDataService
+      .updatePersonalData(this.personalDataForm.value)
+      .subscribe();
   }
 
   changePassword() {}

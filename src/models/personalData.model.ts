@@ -5,5 +5,5 @@ export interface PersonalData {
   address: string;
   zipCode: string;
   city: string;
-  phoneNumber: string;
+  phone: string;
 }
