@@ -1,8 +1,10 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Favorite } from 'src/models/favorites.model';
 import { Product } from 'src/models/products.model';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
 import { CartHttpService } from '../cart.http.service';
+import { FavoriteService } from '../favorite.http.service';
 import { ProductHttpService } from '../product.http.service';
 
 @Component({
@@ -14,15 +16,17 @@ export class HomeComponent implements OnInit {
   constructor(
     private productHttpService: ProductHttpService,
     private cartHttpService: CartHttpService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private favoriteService: FavoriteService
   ) {}
 
   products: Product[] = [];
 
-  isFavorite: boolean = false;
+  favorites: Favorite[] = [];
 
   ngOnInit(): void {
     this.getProducts();
+    this.getFavorites();
   }
 
   getProducts() {
@@ -32,10 +36,29 @@ export class HomeComponent implements OnInit {
   }
 
   onFavoriteClicked(product: Product) {
-    this.isFavorite === true
-      ? (this.isFavorite = false)
-      : (this.isFavorite = true);
-    console.log(this.isFavorite);
+    if (product.favorite === false) {
+      this.addFavorite(product.id);
+    } else {
+      this.removeFavorite(product.id);
+    }
+  }
+
+  addFavorite(productId: any) {
+    this.favoriteService.addFavorite(productId).subscribe(() => {
+      this.getProducts();
+    });
+  }
+
+  removeFavorite(productId: any) {
+    this.favoriteService.removeFavorite(productId).subscribe(() => {
+      this.getProducts();
+    });
+  }
+
+  getFavorites() {
+    return this.favoriteService.getFavorites().subscribe((favorites) => {
+      this.favorites = favorites;
+    });
   }
 
   openDialog() {

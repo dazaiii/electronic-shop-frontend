@@ -30,6 +30,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { ModifyProductComponent } from './modify-product/modify-product.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { ProductOrdersComponent } from './product-orders/product-orders.component';
 
@@ -51,6 +52,7 @@ import { ProductOrdersComponent } from './product-orders/product-orders.componen
     DeleteProductComponent,
     ModifyProductComponent,
     AccountSettingsComponent,
+    FavoriteComponent,
     CartItemComponent,
     ProductOrdersComponent,
   ],
