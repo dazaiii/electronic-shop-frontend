@@ -1,0 +1,35 @@
+.header {
+  font-weight: 500;
+  padding-left: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: rgb(173, 216, 230) dotted 0.15rem;
+}
+
+.order {
+  display: flex;
+
+  &__description {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    &__name {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    &__price {
+      grid-column-start: 5;
+    }
+  }
+}
+
+img {
+  width: 10rem;
+}
+
+h2,
+h3 {
+  font-weight: 500;
+}

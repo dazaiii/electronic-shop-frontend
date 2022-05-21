@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/models/products.model';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
+import { CartHttpService } from '../cart.http.service';
 import { ProductHttpService } from '../product.http.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { ProductHttpService } from '../product.http.service';
 export class ProductComponent implements OnInit {
   constructor(
     private productHttpService: ProductHttpService,
+    private cartHttpService: CartHttpService,
     private route: ActivatedRoute,
     public dialog: MatDialog
   ) {}
@@ -36,6 +38,10 @@ export class ProductComponent implements OnInit {
     this.productHttpService.getProductById(id).subscribe((product) => {
       this.product = product;
     });
+  }
+
+  addToCart(id: number) {
+    this.cartHttpService.addToCart(id, 1).subscribe();
   }
 
   openDialog() {

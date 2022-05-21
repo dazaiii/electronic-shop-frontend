@@ -1,0 +1,14 @@
+<h1 class="header">Orders</h1>
+
+<div *ngFor="let order of orders" class="order">
+  <img [src]="order.productImageUrl" />
+  <div class="order__description">
+    <h3 class="order__description__name">{{ order.productName }}</h3>
+    <div class="order__description__price">
+      Amount: {{ order.productAmount }} <br />
+      Unit price: {{ order.productPrice }} zł <br />
+      Price: {{ order.totalPrice }} zł
+    </div>
+    <div>Ordered: {{ order.orderDate | date: "dd-MMM-YY" }}</div>
+  </div>
+</div>

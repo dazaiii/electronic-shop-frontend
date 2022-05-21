@@ -69,8 +69,7 @@ export class CategoryComponent {
   }
 
   addToCart(productId: number) {
-    //TO DO get userId from cookie
-    this.cartHttpService.addToCart(1, productId, 1).subscribe();
+    this.cartHttpService.addToCart(productId, 1).subscribe();
   }
 
   ngOnDestroy() {

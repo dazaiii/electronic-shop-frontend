@@ -7,9 +7,10 @@
     <h1>{{ product.price | currency: "PLN":"symbol-narrow" }}</h1>
     <h3>{{ product.description }}</h3>
     <button
+      *ngIf="product.id"
       mat-raised-button
       class="product__shoppping-cart"
-      (click)="openDialog()"
+      (click)="openDialog(); addToCart(product.id)"
     >
       <mat-icon>add_shopping_cart</mat-icon>
       <span>Add to cart</span>
