@@ -30,6 +30,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { ModifyProductComponent } from './modify-product/modify-product.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     DeleteProductComponent,
     ModifyProductComponent,
     AccountSettingsComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,
