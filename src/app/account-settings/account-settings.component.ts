@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangePassword } from 'src/models/changePassword.model';
 import { PersonalData } from 'src/models/personalData.model';
 import { PersonalDataService } from '../personal-data.http.service';
+import { UserHttpService } from '../user.http.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -15,7 +17,8 @@ export class AccountSettingsComponent implements OnInit {
 
   constructor(
     fb: FormBuilder,
-    private personalDataService: PersonalDataService
+    private personalDataService: PersonalDataService,
+    private userService: UserHttpService
   ) {
     this.passwordForm = fb.group({
       password: fb.control('', [Validators.required]),
@@ -100,5 +103,16 @@ export class AccountSettingsComponent implements OnInit {
       .subscribe();
   }
 
-  changePassword() {}
+  changePassword() {
+    const changePassword: ChangePassword = {
+      password: this.password?.value,
+      newPassword: this.newPassword?.value,
+    };
+    this.userService.changePassword(changePassword).subscribe(
+      () => {},
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
