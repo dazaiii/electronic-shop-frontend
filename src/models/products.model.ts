@@ -7,5 +7,5 @@ export interface Product {
   availability: boolean;
   imageUrl: string;
   bestseller: boolean;
-  category?: string;
+  categoryId?: number;
 }

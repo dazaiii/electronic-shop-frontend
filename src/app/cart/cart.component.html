@@ -10,12 +10,7 @@
     <h3>Products total price: {{ cart.totalPrice }} zł</h3>
     <h3>Delivery costs: 15 zł</h3>
     <h3>Total price: {{ cart.totalPrice + 15 }} zł</h3>
-    <button
-      routerLink="/orders"
-      (click)="order()"
-      mat-raised-button
-      class="order__button"
-    >
+    <button (click)="order()" mat-raised-button class="order__button">
       <mat-icon>arrow_forward</mat-icon>
       <span>Order</span>
     </button>

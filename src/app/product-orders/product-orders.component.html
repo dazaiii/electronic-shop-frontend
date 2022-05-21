@@ -1,6 +1,6 @@
 <h1 class="header">Orders</h1>
 
-<div *ngFor="let order of orders" class="order">
+<div *ngFor="let order of orders; trackBy: identify" class="order">
   <img [src]="order.productImageUrl" />
   <div class="order__description">
     <h3 class="order__description__name">{{ order.productName }}</h3>

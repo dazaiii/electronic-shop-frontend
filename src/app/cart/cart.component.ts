@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CartResponse } from 'src/models/carts.model';
 import { CartHttpService } from '../cart.http.service';
 import { ProductOrderService } from '../product-order.http.service';
@@ -12,7 +12,8 @@ import { ProductOrderService } from '../product-order.http.service';
 export class CartComponent implements OnInit {
   constructor(
     private cartHttpService: CartHttpService,
-    private productOrderService: ProductOrderService
+    private productOrderService: ProductOrderService,
+    private route: Router
   ) {}
 
   cart: CartResponse;
@@ -28,6 +29,8 @@ export class CartComponent implements OnInit {
   }
 
   order() {
-    this.productOrderService.addOrder().subscribe();
+    this.productOrderService.addOrder().subscribe(() => {
+      this.route.navigate(['/orders']);
+    });
   }
 }

@@ -17,9 +17,10 @@ export class ProductOrdersComponent implements OnInit {
   }
 
   getOrders() {
-    this.productOrderService.getOrders().subscribe((response) => {
-      this.orders = response;
-      console.log(response);
-    });
+    this.productOrderService.getOrders().subscribe();
+  }
+
+  identify(index: number, order: ProductOrder) {
+    return order.id;
   }
 }

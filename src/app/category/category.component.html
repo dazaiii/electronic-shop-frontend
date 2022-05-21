@@ -1,7 +1,12 @@
 <h1 class="category">{{ category.name }}</h1>
 <h3>{{ category.description }}</h3>
+<button mat-button [matMenuTriggerFor]="menu">Sort</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="sortDescending()">Price descending</button>
+  <button mat-menu-item (click)="sortAscending()">Price ascending</button>
+</mat-menu>
 <div class="wrapper">
-  <div *ngFor="let product of products">
+  <div *ngFor="let product of products; trackBy: identify">
     <div class="element">
       <div class="product" [routerLink]="['/products', product.id]">
         <img [src]="product.imageUrl" />

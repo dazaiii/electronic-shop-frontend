@@ -1,6 +1,15 @@
 <h1 class="bestsellers">Bestsellers</h1>
+<button mat-button [matMenuTriggerFor]="menu">Filter</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="filterByCategories()">All</button>
+  <ng-container *ngFor="let category of categories">
+    <button mat-menu-item (click)="filterByCategories(category.id)">
+      {{ category.name }}
+    </button>
+  </ng-container>
+</mat-menu>
 <div class="wrapper">
-  <div *ngFor="let product of products">
+  <div *ngFor="let product of filteredProducts; trackBy: identify">
     <div class="element">
       <div class="product" [routerLink]="['/products', product.id]">
         <img [src]="product.imageUrl" />
@@ -11,7 +20,7 @@
         <button
           mat-icon-button
           *ngIf="product.id"
-          (click)="openDialog(); addToCart(product.id)"
+          (click)="addToCart(product.id)"
         >
           <mat-icon class="product__shoppping-cart">add_shopping_cart</mat-icon>
         </button>

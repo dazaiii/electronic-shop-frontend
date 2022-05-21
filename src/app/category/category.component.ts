@@ -80,4 +80,16 @@ export class CategoryComponent {
   ngOnDestroy() {
     this.routeSub.unsubscribe();
   }
+
+  identify(index: number, product: Product) {
+    return product.id;
+  }
+
+  sortAscending() {
+    this.products.sort((a, b) => a.price - b.price);
+  }
+
+  sortDescending() {
+    this.products.sort((a, b) => b.price - a.price);
+  }
 }
