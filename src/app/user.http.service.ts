@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ChangePassword } from 'src/models/changePassword.model';
+import { Registration } from 'src/models/register.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +29,9 @@ export class UserHttpService {
       changePassword,
       { withCredentials: true }
     );
+  }
+
+  register(body: Registration) {
+    return this.http.post(`http://localhost:3000/api/users`, body);
   }
 }

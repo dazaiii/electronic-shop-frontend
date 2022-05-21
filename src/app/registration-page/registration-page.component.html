@@ -27,8 +27,19 @@
         <mat-error *ngIf="password?.hasError('required')">
           Password is required
         </mat-error>
+        <mat-error *ngIf="password?.hasError('minlength')">
+          Password should consist of 8 or more characters
+        </mat-error>
       </mat-form-field>
-      <button mat-button class="register-button">Sign up</button>
+      <button
+        mat-button
+        class="register-button"
+        [disabled]="registrationForm.invalid"
+        (click)="register()"
+      >
+        Sign up
+      </button>
+      <div>{{ errorMessage }}</div>
     </form>
   </div>
 </div>
