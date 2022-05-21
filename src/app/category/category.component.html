@@ -17,17 +17,9 @@
           <mat-icon class="product__shoppping-cart">add_shopping_cart</mat-icon>
         </button>
         <button mat-icon-button (click)="onFavoriteClicked(product)">
-          <mat-icon
-            *ngIf="isFavorite === false; else favorite"
-            class="product__favorite"
-            >favorite_border</mat-icon
-          >
+          <mat-icon class="product__favorite">favorite</mat-icon>
         </button>
       </div>
     </div>
   </div>
 </div>
-
-<ng-template #favorite>
-  <mat-icon class="product__favorite">favorite</mat-icon>
-</ng-template>

@@ -33,6 +33,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { FavoriteComponent } from './favorite/favorite.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { ProductOrdersComponent } from './product-orders/product-orders.component';
+import { FavoriteDialogComponent } from './favorite-dialog/favorite-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ProductOrdersComponent } from './product-orders/product-orders.componen
     FavoriteComponent,
     CartItemComponent,
     ProductOrdersComponent,
+    FavoriteDialogComponent,
   ],
   imports: [
     BrowserModule,

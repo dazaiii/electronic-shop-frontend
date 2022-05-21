@@ -1,8 +1,20 @@
 <h1 class="wish-list">Wish list</h1>
-<div class="favorited__container" *ngFor="let favorite of favorites$ | async">
+<div
+  class="favorited__container"
+  *ngFor="let favorite of favoriteSubject | async; trackBy: identify"
+>
   <div class="item">
     <h3 class="item__name">{{ favorite.name }}</h3>
     <img class="item__image" [src]="favorite.imageUrl" />
-    <h3 class="item__price">{{ favorite.price }}</h3>
+    <h3 class="item__price">Price: {{ favorite.price }} zł</h3>
+    <h3 class="item__description">Description: {{ favorite.description }}</h3>
+    <button
+      mat-button
+      class="item__remove-button"
+      (click)="removeFavorite(favorite.id)"
+    >
+      <mat-icon>favorite</mat-icon>
+      Remove from wish list
+    </button>
   </div>
 </div>

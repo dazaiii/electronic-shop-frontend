@@ -7,6 +7,8 @@ import { Product } from 'src/models/products.model';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
 import { CartHttpService } from '../cart.http.service';
 import { CategoryHttpService } from '../category.http.service';
+import { FavoriteDialogComponent } from '../favorite-dialog/favorite-dialog.component';
+import { FavoriteService } from '../favorite.http.service';
 import { ProductHttpService } from '../product.http.service';
 
 @Component({
@@ -30,7 +32,8 @@ export class CategoryComponent {
     private cartHttpService: CartHttpService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private categoryHttpService: CategoryHttpService
+    private categoryHttpService: CategoryHttpService,
+    private favoriteService: FavoriteService
   ) {}
 
   ngOnInit(): void {
@@ -58,10 +61,12 @@ export class CategoryComponent {
   }
 
   onFavoriteClicked(product: Product) {
-    this.isFavorite === true
-      ? (this.isFavorite = false)
-      : (this.isFavorite = true);
-    console.log(this.isFavorite);
+    this.addFavorite(product.id);
+  }
+
+  addFavorite(productId: any) {
+    this.dialog.open(FavoriteDialogComponent);
+    this.favoriteService.addFavorite(productId).subscribe();
   }
 
   openDialog() {

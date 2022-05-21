@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Product successfully added to the wish list</h1>
+<div mat-dialog-content>You can go to the wish list or continue shopping.</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cotninue shopping</button>
+  <button mat-button mat-dialog-close [routerLink]="'/favorite'">
+    Go to the wish list
+  </button>
+</div>

@@ -4,6 +4,7 @@ import { Favorite } from 'src/models/favorites.model';
 import { Product } from 'src/models/products.model';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
 import { CartHttpService } from '../cart.http.service';
+import { FavoriteDialogComponent } from '../favorite-dialog/favorite-dialog.component';
 import { FavoriteService } from '../favorite.http.service';
 import { ProductHttpService } from '../product.http.service';
 
@@ -26,7 +27,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    this.getFavorites();
   }
 
   getProducts() {
@@ -36,29 +36,12 @@ export class HomeComponent implements OnInit {
   }
 
   onFavoriteClicked(product: Product) {
-    if (product.favorite === false) {
-      this.addFavorite(product.id);
-    } else {
-      this.removeFavorite(product.id);
-    }
+    this.addFavorite(product.id);
   }
 
   addFavorite(productId: any) {
-    this.favoriteService.addFavorite(productId).subscribe(() => {
-      this.getProducts();
-    });
-  }
-
-  removeFavorite(productId: any) {
-    this.favoriteService.removeFavorite(productId).subscribe(() => {
-      this.getProducts();
-    });
-  }
-
-  getFavorites() {
-    return this.favoriteService.getFavorites().subscribe((favorites) => {
-      this.favorites = favorites;
-    });
+    this.dialog.open(FavoriteDialogComponent);
+    this.favoriteService.addFavorite(productId).subscribe();
   }
 
   openDialog() {
