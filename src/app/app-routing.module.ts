@@ -15,6 +15,7 @@ import { ModifyProductComponent } from './modify-product/modify-product.componen
 import { ProductComponent } from './product/product.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { ProductOrdersComponent } from './product-orders/product-orders.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'category/:id', component: CategoryComponent },
   { path: 'account', component: AccountSettingsComponent },
   { path: 'favorite', component: FavoriteComponent },
+  { path: 'orders', component: ProductOrdersComponent },
 ];
 
 @NgModule({

@@ -31,6 +31,8 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { ModifyProductComponent } from './modify-product/modify-product.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { ProductOrdersComponent } from './product-orders/product-orders.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
     ModifyProductComponent,
     AccountSettingsComponent,
     FavoriteComponent,
+    CartItemComponent,
+    ProductOrdersComponent,
   ],
   imports: [
     BrowserModule,

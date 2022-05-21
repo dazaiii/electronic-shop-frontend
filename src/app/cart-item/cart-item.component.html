@@ -1,0 +1,22 @@
+<div class="item">
+  <h3 class="item__name">{{ item.name }}</h3>
+  <img class="item__image" [src]="item.imageUrl" />
+  <h3 class="item__price">Price: {{ item.price }} zł</h3>
+  <div class="item__shopping-cart">
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput [formControl]="amountForm" />
+      <button mat-button matSuffix (click)="updateItem(item.id)">
+        <mat-icon>check_circle_outline</mat-icon>
+      </button>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      class="item__shopping-cart__button"
+      (click)="removeItem(item.id)"
+    >
+      <mat-icon>remove_shopping_cart</mat-icon>
+      <span>Remove from cart</span>
+    </button>
+  </div>
+</div>
