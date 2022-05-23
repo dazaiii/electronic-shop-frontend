@@ -17,7 +17,9 @@ export class ProductOrdersComponent implements OnInit {
   }
 
   getOrders() {
-    this.productOrderService.getOrders().subscribe();
+    this.productOrderService
+      .getOrders()
+      .subscribe((order) => (this.orders = order));
   }
 
   identify(index: number, order: ProductOrder) {

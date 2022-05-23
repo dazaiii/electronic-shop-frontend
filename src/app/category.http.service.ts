@@ -24,18 +24,23 @@ export class CategoryHttpService {
   addCategory(body: Category): Observable<Category> {
     return this.httpClient.post<Category>(
       `http://localhost:3000/api/categories`,
-      body
+      body,
+      { withCredentials: true }
     );
   }
 
   modifyCategory(id: number, body: Category): Observable<Category> {
     return this.httpClient.put<Category>(
       `http://localhost:3000/api/categories/${id}`,
-      body
+      body,
+      { withCredentials: true }
     );
   }
 
   deleteCategory(id: number): Observable<any> {
-    return this.httpClient.delete(`http://localhost:3000/api/categories/${id}`);
+    return this.httpClient.delete(
+      `http://localhost:3000/api/categories/${id}`,
+      { withCredentials: true }
+    );
   }
 }
