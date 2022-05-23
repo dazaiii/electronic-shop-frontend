@@ -35,6 +35,10 @@
   &__name {
     font-size: medium;
     font-weight: 500;
+    padding: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    height: 6rem;
   }
 
   &__buttons {
@@ -43,7 +47,7 @@
     padding: 1rem;
   }
 
-  &__shoppping-cart {
+  &__shopping-cart {
     border-radius: 50%;
     padding: 0.5rem;
     background-color: lightblue;
